@@ -9,6 +9,7 @@ const answerEl = document.getElementById('answer');
 const addCardBtn = document.getElementById('add-card');
 const clearBtn = document.getElementById('clear');
 const addContainer = document.getElementById('add-container');
+const rutEl=document.getElementById('rut');
 
 // Keep track of current card
 let currentActiveCard = 0;
@@ -18,21 +19,6 @@ const cardsEl = [];
 
 // Store card data
 const cardsData = getCardsData();
-
-// const cardsData = [
-//   {
-//     question: 'What must a variable begin with?',
-//     answer: 'A letter, $ or _'
-//   },
-//   {
-//     question: 'What is a variable?',
-//     answer: 'Container for a piece of data'
-//   },
-//   {
-//     question: 'Example of Case Sensitive Variable',
-//     answer: 'thisIsAVariable'
-//   }
-// ];
 
 // Create all cards
 function createCards() {
@@ -133,6 +119,14 @@ hideBtn.addEventListener('click', () => addContainer.classList.remove('show'));
 addCardBtn.addEventListener('click', () => {
   const question = questionEl.value;
   const answer = answerEl.value;
+  const rut= rutEl.value;
+  const alertaRut=document.createElement('span')
+  alertaRut.innerText="demasiado largo";
+  alertaRut.classList.add('false-rut')
+  document.querySelector('.special-group').appendChild(alertaRut)
+  if(rut.trim().length>5){
+    alertaRut.classList.remove('false-rut')
+  }
 
   if (question.trim() && answer.trim()) {
     const newCard = { question, answer };

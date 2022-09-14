@@ -188,3 +188,7 @@ h1 button {
   min-width: 500px;
   max-width: 100%;
 }
+
+#rut.false-rut{
+  opacity:1
+}
